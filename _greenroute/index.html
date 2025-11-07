@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GreenRoute — nachhaltige Wegeplanung</title>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+  <!-- Eigene Styles -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>GreenRoute</h1>
+    <p class="tag">Nachhaltige Wegeplanung • CO₂-Ersparnis anzeigen</p>
+  </header>
+
+  <main class="container">
+    <section class="controls">
+      <h2>Route berechnen</h2>
+
+      <label for="start">Start</label>
+      <input id="start" type="text" placeholder="z. B. Schule, Adresse..." />
+
+      <label for="goal">Ziel</label>
+      <input id="goal" type="text" placeholder="z. B. Park, Adresse..." />
+
+      <label for="mode">Verkehrsmittel</label>
+      <select id="mode">
+        <option value="walk">Zu Fuß</option>
+        <option value="bike">Fahrrad</option>
+        <option value="transit">ÖPNV</option>
+        <option value="car">Auto</option>
+      </select>
+
+      <div class="btn-row">
+        <button id="calcBtn">Route berechnen</button>
+        <button id="locateBtn" title="Meine Position">Meine Position</button>
+      </div>
+
+      <div class="info-cards">
+        <div class="card">
+          <h3>Distanz</h3>
+          <p id="distance">—</p>
+        </div>
+        <div class="card">
+          <h3>Geschätzte CO₂-Emission</h3>
+          <p id="co2">—</p>
+        </div>
+      </div>
+
+      <h3>Routenschritte</h3>
+      <ul id="steps" class="steps-list">
+        <li>Keine Route berechnet.</li>
+      </ul>
+    </section>
+
+    <section class="map-wrap">
+      <div id="map"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>GreenRoute — Demo • Nicht für Produktionsgebrauch</small>
+  </footer>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Eigene Logik -->
+  <script src="app.js"></script>
+</body>
+</html>
